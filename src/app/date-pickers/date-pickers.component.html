@@ -1,0 +1,21 @@
+<app-home></app-home>
+<div style="text-align:center"><br><br>
+    <form name="form" [formGroup]="date" autocomplete="on"  novalidate>
+        <span style="margin-right:-10em"></span>Selected Date Range<span style="margin-left:13em"></span>
+        Set Date Range <br> <my-date-range-picker name="range" [options]="rangePicker"
+        formControlName="range"></my-date-range-picker><span style="margin-left: 5em"></span>
+        <my-date-range-picker name="revRange" [options]="revRangePicker"
+        formControlName="revRange"  (dateRangeChanged)="onDateRangeChanged($event)"></my-date-range-picker></form><br><br><br>
+        <div class="formstyle">
+                <form name="form" [formGroup]="date" autocomplete="on"  novalidate>
+                        Start Date : {{date.value.stdate.formatted}}<my-date-picker name="stdate" [options]="startdate"
+                        formControlName="stdate" (dateChanged)="onDateChanged($event)"></my-date-picker><br>
+                        End Date : {{date.value.endate.formatted}}<my-date-picker name="endate" [options]="enddate" 
+                        formControlName="endate" (dateChanged)="onDateChangedRange($event)" ></my-date-picker><br>
+                
+
+                        <div style="text-align:center">
+               </div>
+            </form>
+        </div></div>
+         

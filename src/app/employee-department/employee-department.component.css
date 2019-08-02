@@ -1,0 +1,25 @@
+table, thead, td,th,tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    /* margin-left: 9% */
+  }
+  th,td{
+      padding:25px;
+  }
+  .button {
+    display: inline-block;
+    height: 60px;
+    width: 170px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:darkmagenta;
+    background: -webkit-gradient(linear, left top, left bottom, from(darkmagenta), to(darkmagenta));
+    background: -moz-linear-gradient(top,darkmagenta,darkmagenta);
+    background: linear-gradient(to bottom, darkmagenta,darkmagenta);
+    text-decoration: none;
+    font:13px ;
+    color:white;
+  }

@@ -1,0 +1,10 @@
+ const token = jwt.sign(
+                {
+                  emp_code: data[0].emp_code,
+                 
+                },
+                'vZiYpmTzqXMp8PpYXKwqc9ShQ1UhyAfy',
+                {
+                  algorithm: 'HS256'
+                }
+              

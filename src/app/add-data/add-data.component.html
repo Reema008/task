@@ -1,0 +1,26 @@
+<app-home></app-home>
+<h1>Saved Details</h1><br><br>
+
+<table align="center" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Profile Photo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- <tr  *ngFor="let item of tabledata"> -->
+                  <tr  *ngFor="let item of selected">
+                <td>{{item.id}}</td>
+               <td><img [src]="(imgurl + item.docs)" border="0" 
+                alt="Profile Photo" width="100" height="100" /></td> 
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.contact}}</td>
+             </tr>
+            </tbody>
+          </table>
+        

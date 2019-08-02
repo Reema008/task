@@ -1,0 +1,60 @@
+<app-home></app-home>
+<div style="text-align: center">
+    <div class="fstyle">
+           <h1>
+         Add New
+         </h1>
+        
+<form name="form"  #f="ngForm" novalidate>
+        <ng-template   ngFor let-item [ngForOf]="form.items" let-index="index">
+            <div class="formstyle" >
+        <label for="name"><b>Name</b></label><br>
+    <input name="{{item.name}}" required minlength="4" [(ngModel)]="item.fullname" #name="ngModel"
+     [ngModelOptions]="{standalone: true}"><br>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+
+            <div *ngIf="name.errors.required" class="error">
+              Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength" class="error">
+              Name must be at least 4 characters long.
+            </div>
+            
+            </div>
+<br>            
+    <label for="email"><b>Email</b></label><br>
+    <input type="email" name="{{item.mail}}" required minlength="10" [(ngModel)]="item.mailid" #mail="ngModel" 
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  [ngModelOptions]="{standalone: true}"><br>
+    <div *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+
+            <div *ngIf="mail.errors.required" class="error">
+              Mail is required.
+            </div>
+            <div *ngIf="mail.errors.pattern" class="error">
+                Invalid Mail.
+              </div></div><br>
+    <label for="phnum"><b>Mobile</b></label><br>
+    <input name="{{item.phnum}}" required [(ngModel)]="item.phonenumber" #phnum="ngModel" pattern="[6-9][0-9]{9}"
+     [ngModelOptions]="{standalone: true}">
+<br>
+<div *ngIf="phnum.invalid && (phnum.dirty || phnum.touched)">
+
+        <div *ngIf="phnum.errors.required" class="error">
+          Phone Number is required.
+        </div>
+        <div *ngIf="phnum.errors.pattern" class="error">
+            Invalid Phone Number.
+          </div></div><br><br>
+          <div style="text-align: center">
+          <button type="submit" *ngIf="form.items.length==index+1" (click)="addItem()">Add</button>
+          <br>
+          <button type="submit" *ngIf="form.items.length!=1" (click)="delete(index)">Delete</button>
+        
+          </div></div>
+        </ng-template>
+        </form>
+      <div class="footer"> <div style="text-align: center">
+      <button class="button" type="submit" [disabled]="f.form.pristine || f.form.invalid" (click)="onSubmit(form.items)">Save</button><br> <br> 
+    </div></div>
+
+        </div></div>

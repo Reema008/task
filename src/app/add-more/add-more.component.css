@@ -1,0 +1,50 @@
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .formstyle{
+    width:50%;
+     border:2px solid black;
+     background-color:whitesmoke;
+     text-align:left;
+     padding: 50px 50px 50px 50px;
+     float: left;
+   }
+   .fstyle{
+    display: inline-block;
+    width:70%;
+     border:2px solid white;
+     background-color:white;
+     text-align:left;
+     padding: 50px 50px 50px 50px;
+   }
+   .footer{
+    display: inline-block;
+    width:90%;
+     border:2px solid white;
+     background-color:white;
+     text-align:left;
+     padding: 50px 50px 50px 50px;
+   }
+   
+   .button {
+    display: inline-block;
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:skyblue;
+    background: -webkit-gradient(linear, left top, left bottom, from(skyblue), to(skyblue));
+    background: -moz-linear-gradient(top,skyblue,navy);
+    background: linear-gradient(to bottom, skyblue,skyblue);
+    text-decoration: none;
+    font:13px ;
+   /* color:white; */
+  }

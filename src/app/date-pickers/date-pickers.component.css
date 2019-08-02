@@ -1,0 +1,12 @@
+.formstyle{
+    display:inline-block;
+    height:250px;
+    width:350px;
+     border:2px solid black;
+     background-color:whitesmoke;
+     text-align:left;
+     padding: 50px 50px 50px 50px;
+     font:13px ;
+     color:maroon;
+   }
+  

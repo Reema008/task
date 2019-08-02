@@ -1,0 +1,195 @@
+
+<app-home></app-home>
+<div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+    <div   class="outerborder">
+        <form name="form" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+      <table align=center>
+        <tr>
+          <td>Full Name :</td>
+          <td>Date of Birth</td>
+          
+        </tr>
+        <tr>
+          <td><input name="name" required minlength="4" [(ngModel)]="data.fullname" #name="ngModel" ></td>
+          <td> <my-date-picker name="dob" [options]="dateOfBirth"
+            [(ngModel)]="data.dateofbirth" #dob="ngModel" required></my-date-picker></td>      
+         
+        </tr>
+        <tr>
+          <td class=a>
+            <div *ngIf="name.invalid && (name.dirty || name.touched)">
+
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                  Name must be at least 4 characters long.
+                </div>
+                
+                </div>
+  
+          </td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>Contact :</td>
+        </tr>
+        <tr>
+          <td><input type="email" name="mail" required 
+            [(ngModel)]="data.mailid" #mail="ngModel" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+             > </td>
+          <td> <input type="text" name="num" required [(ngModel)]="data.phonenumber" #num="ngModel" 
+            pattern="[6-9][0-9]{9}"></td>
+        </tr>
+        <tr>
+          <td class="a">
+            <div *ngIf="mail.invalid && (mail.dirty || mail.touched)">
+
+                <div *ngIf="mail.errors.required" >
+                  Mail is required.
+                </div>
+                <div *ngIf="mail.errors.pattern">
+                    Invalid Mail.
+                  </div>
+                
+                </div>
+  
+          </td>
+          <td class="a">
+            <div *ngIf="num.invalid && (num.dirty || num.touched)">
+
+                <div *ngIf="num.errors.required" >
+                    
+                  Phone Number is required.
+                </div>
+                <div *ngIf="num.errors.pattern" >
+                    
+                    Invalid Phone Number.
+                  </div>
+                
+                </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Password :</td>
+          <td>About Yourself :</td></tr>
+          <tr>
+          <td><input type="password" name="password" required  [(ngModel)]="data.passwordset" #password="ngModel"
+            pattern='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'>
+            
+           <br>
+            <a routerLink="/setpassword">Password should contain...</a></td>
+            <td>
+             <textarea cols="20" rows="2" style="border-style:solid;
+             border-width: 3px;
+             border-color: grey"name="about" 
+              required [(ngModel)]="data.abtu" #about="ngModel"></textarea></td>
+        </tr>
+  
+        <tr>
+            <td class="a">
+                <div  *ngIf="password.invalid && (password.dirty || password.touched)">
+
+                    <div *ngIf="password.errors.required" >
+                      Password is required.
+                    </div>
+                    <div *ngIf="password.errors.pattern">
+                     Invalid Password.
+                   </div>
+                   </div>
+    
+            </td>
+            <td class="a">
+                <div  *ngIf="about.invalid && (about.dirty || about.touched)">
+       
+                    <div *ngIf="about.errors.required" >
+                      Describe yourself.
+                    </div>
+                    
+                  </div>
+    
+            </td>
+          </tr>
+          <tr>
+            <td>
+                    State:&nbsp;<select name="states" required [(ngModel)]="data.state" #states="ngModel" aria-placeholder="Select Department">
+                            <option value="Telangana">Telangana</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Karnataka">Karnataka</option>
+                          </select>
+            </td>
+            <td> <input type="radio" name="gen" value="male" 
+                required [(ngModel)]="data.gender" #gen="ngModel"> Male
+                <input type="radio" name="gen" value="female" 
+                required [(ngModel)]="data.gender" #gen="ngModel"> Female</td>
+          </tr>
+          <tr>
+              <td class="a"> <div *ngIf="states.invalid && (states.dirty || states.touched)">
+                    <div *ngIf="states.errors.required" class="error">
+                      Select your state.</div>
+                </div></td>
+              <td class="a">
+                    <div  *ngIf="gen.invalid && (gen.dirty || gen.touched)">
+    
+                            <div *ngIf="gen.errors.required" class="error">
+                              Gender is required.
+                            </div></div>
+      
+              </td>
+            </tr>
+          <tr>
+              <td>Department</td>
+              <td>Date of Joining :</td></tr>
+          <tr>
+            <td>
+              <select name="dpmid"  required [(ngModel)]="data.department" #dpmid="ngModel">
+                <option value="1">Accounts and Finance.</option>
+                <option value="2">Human Resource Management</option>
+                <option value="3">Sales and marketing</option>
+                <option value="4">Infrastructures.</option>
+                <option value="5">Research and development</option>
+                <option value="6">Learning and development</option>
+                <option value="7">IT services.</option>
+                <option value="8">Product development.</option>
+              </select>
+            </td>
+            <td><my-date-picker name="doj" [options]="dateOfJoining"
+                [(ngModel)]="data.dateofjoin" #doj="ngModel" required></my-date-picker></td>
+          </tr>
+          <tr> <td class="a">
+                <div *ngIf="dpmid.invalid && (dpmid.dirty || dpmid.touched)">
+                        <div *ngIf="dpmid.errors.required">
+                          Select your Department.</div>
+                    </div>
+              
+                  
+          </td></tr>
+           
+  </table>
+  Upload<input type="file" name="choose" value="upload"><br><br>
+  <input type="checkbox" name="subscribe" value="ifyes">I want to receive email about updates to website
+  <br><br><input type="checkbox" name="agreement" value="agree" required [(ngModel)]="data.accept" #agreement="ngModel">
+  I accept the <a routerLink="/termsandconditions">Terms and Conditions</a>.
+  <br>
+
+  <div *ngIf="agreement.invalid && (agreement.dirty || agreement.touched)">
+      <div *ngIf="agreement.errors.required" >
+        Accept to continue...</div>
+  </div>
+                <br><br><br>
+<div style="text-align: center"><button class="button" [disabled]="f.form.pristine || f.form.invalid">Register</button>
+</div>
+                <br>
+            </form>
+  </div>
+    
+    </div>
+   
+
+   

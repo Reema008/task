@@ -1,0 +1,83 @@
+
+  table, thead, td,th,tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+  
+  }
+  th,td{
+      padding:5px;
+     
+  }
+  .button {
+    display: inline-block;
+    height: 50px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:lightcoral;
+    background: -webkit-gradient(linear, left top, left bottom, from(lightcoral), to(lightcoral));
+    background: -moz-linear-gradient(top,lightcoral,lightcoral);
+    background: linear-gradient(to bottom, lightcoral,lightcoral);
+    text-decoration: none;
+    font:13px ;
+   color:black;
+  }
+  .button2 {
+    display: inline-block;
+    height: 50px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:lightgreen;
+    background: -webkit-gradient(linear, left top, left bottom, from(lightgreen), to(lightgreen));
+    background: -moz-linear-gradient(top,lightgreen,lightgreen);
+    background: linear-gradient(to bottom, lightgreen,lightgreen);
+    text-decoration: none;
+    font:13px ;
+   color:black;
+  }
+  .button3{
+    display: inline-block;
+    height: 50px;
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background:skyblue;
+    background: -webkit-gradient(linear, left top, left bottom, from(skyblue), to(skyblue));
+    background: -moz-linear-gradient(top,skyblue,skyblue);
+    background: linear-gradient(to bottom, skyblue,skyblue);
+    text-decoration: none;
+    font:13px ;
+   color:black;
+  }
+  
+  .button1{
+    display: inline-block;
+    height: 40px;
+    width: 210px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 3px;
+    background: navy;
+    background: -webkit-gradient(linear, left top, left bottom, from(navy), to(navy));
+    background: -moz-linear-gradient(top,navy,navy);
+    background: linear-gradient(to bottom, navy,navy);
+    text-decoration: none;
+    font:13px ;
+   color:white;
+  }
+  .head{
+    font:25px ;
+    color:black;
+  }

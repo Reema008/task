@@ -1,0 +1,15 @@
+<app-home></app-home>
+<div style="text-align: center">
+    <h1>
+    {{ title }}
+  </h1><br><br>
+      <form [formGroup]="encrypt_decrypt" class="formstyle" novalidate>
+          
+            <label for="uname"><b>Text</b></label><br>
+            <input type="text" placeholder="Enter a Text" formControlName="text" required ><br><br><br>
+            <div style="text-align: center">
+            <button class="button" type="submit" (click)="enSubmit(encrypt_decrypt.value.text)">Encrypt</button>
+            <span style="margin-left:1em"></span>
+            <button class="button" type="submit" (click)="deSubmit(encryptedData)">Decrypt</button></div>
+        </form>
+      </div>

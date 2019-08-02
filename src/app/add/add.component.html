@@ -1,0 +1,60 @@
+<app-home></app-home>
+ <div style="text-align: center">
+  <h1>
+    Add New
+    </h1>
+ <div class="fstyle">
+       
+   
+          <div [formGroup]="addForm">
+      <div formArrayName="items" class="formstyle"
+      *ngFor="let item of addForm.controls.items.controls; let i = index;">
+      <div [formGroupName]="i" >
+        <label for="uname"><b>Name</b></label>
+        <input type="text" placeholder="Enter Username" formControlName="name" required ><br>
+        <div *ngIf="addForm.controls.items.controls[i].controls['name'].invalid && (addForm.controls.items.controls[i].controls['name'].dirty || addForm.controls.items.controls[i].controls['name'].touched)">
+            <div *ngIf="addForm.controls.items.controls[i].controls['name'].errors.required" class="error">
+            Name is required.
+          </div></div>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" formControlName="mail" required ><br>
+        <div *ngIf="addForm.controls.items.controls[i].controls['mail'].invalid && (addForm.controls.items.controls[i].controls['mail'].dirty || addForm.controls.items.controls[i].controls['mail'].touched)" >
+            <div *ngIf="addForm.controls.items.controls[i].controls['mail'].errors.required" class="error">
+            Email is required.
+          </div>
+          <div *ngIf="addForm.controls.items.controls[i].controls['mail'].errors.email" class="error">
+            Invalid mail.
+          </div>
+        </div>
+        <label for="num"><b>Mobile</b></label>
+        <input type="text" placeholder="Enter Mobile Number" formControlName="contact" required><br>
+        <div *ngIf="addForm.controls.items.controls[i].controls['contact'].invalid && (addForm.controls.items.controls[i].controls['contact'].dirty || addForm.controls.items.controls[i].controls['contact'].touched)" >
+            <div *ngIf="addForm.controls.items.controls[i].controls['contact'].errors.required" class="error">
+               Contact Number is required.
+          </div>
+          <div *ngIf="addForm.controls.items.controls[i].controls['contact'].errors.pattern" class="error">
+              Invalid Contact Number.
+          </div>
+        </div>
+        <label for="num"><b>Profile Photo </b></label>
+         <input type="file" formControlName="file" ng2FileSelect [uploader]="uploader" accept="image/*" />
+                <!-- accept="application/msword,text/plain, application/pdf" /> -->
+                <!-- <span style="margin-left: 15em">
+                     <button type="button" class="btn btn-success btn-s" 
+                (click)="uploader.uploadAll()" 
+                [disabled]="!uploader.getNotUploadedItems().length" >
+               Upload File
+              </button></span> -->
+               <br>
+        <div style="text-align: center">
+        <button *ngIf="addForm.value.items.length==i+1" type="submit" (click)="addItem(i)">Add</button>
+        <br>
+        <button *ngIf="addForm.value.items.length!=1" type="submit" (click)="delete(i)">Delete</button>
+      
+        </div>
+    </div></div></div>
+   
+    <div class="footer"> <div style="text-align: center">
+    <button class="button" type="submit" [disabled]="!addForm.valid" (click)="uploader.uploadAll()" (click)="onSubmit(addForm.value)">Save</button><br>
+  </div></div></div></div>
+  <!-- -  {{i+1}} - {{addForm.get('items').controls.length}} -->

@@ -1,0 +1,70 @@
+Microsoft Windows [Version 10.0.17763.557]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\reemaroy>cd..
+
+C:\Users>cd..
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 16
+Server version: 10.1.40-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| bookmyshow         |
+| computerstore      |
+| forms              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| practice           |
+| project            |
+| reema              |
+| reemaroy           |
+| shirts_db          |
+| soap_store         |
+| test               |
++--------------------+
+14 rows in set (0.00 sec)
+
+MariaDB [(none)]> use forms
+Database changed
+MariaDB [forms]> show tables;
+Empty set (0.00 sec)
+
+MariaDB [forms]> create table users(Id int primary key,Name varchar(100),Date_of_Birth date,eMail varchar(100),Contact BIGINT ,About_You varchar(100),State varchar(100),Gender varchar(100),Password varchar(100));
+Query OK, 0 rows affected (0.15 sec)
+
+MariaDB [forms]> show columns from users
+    -> ;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| Id            | int(11)      | NO   | PRI | NULL    |       |
+| Name          | varchar(100) | YES  |     | NULL    |       |
+| Date_of_Birth | date         | YES  |     | NULL    |       |
+| eMail         | varchar(100) | YES  |     | NULL    |       |
+| Contact       | int(11)      | YES  |     | NULL    |       |
+| About_You     | varchar(100) | YES  |     | NULL    |       |
+| State         | varchar(100) | YES  |     | NULL    |       |
+| Gender        | varchar(100) | YES  |     | NULL    |       |
+| Password      | varchar(100) | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+MariaDB [forms]>

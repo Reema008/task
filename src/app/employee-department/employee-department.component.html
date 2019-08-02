@@ -1,0 +1,25 @@
+<app-home></app-home>
+<div style="text-align: center">
+<h1>Employees' Department</h1><br><br>
+<button (click)="back()" class="button">Employee Details</button>
+<table align="center">
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Department Id</th>
+            </tr>
+          </thead>
+          <tbody>
+              <!-- <tr  *ngFor="let item of tabledata"> -->
+                  <tr  *ngFor="let item of selected">
+                <td>{{item.Id}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.department}}</td>
+                <td>{{item.id}}</td>
+                </tr>
+            </tbody>
+          </table>
+       
+</div>

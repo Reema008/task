@@ -1,0 +1,19 @@
+<app-home></app-home>
+<div style="text-align: center">
+  <h1>
+  {{ title }}
+</h1>
+    <form [formGroup]="loginForm" class="formstyle" novalidate>
+        
+          <label for="uname"><b>Username</b></label><br>
+          <input type="text" placeholder="Enter Username" formControlName="name" required ><br>
+      
+          <label for="psw"><b>Password</b></label><br>
+          <input type="password" placeholder="Enter Password" formControlName="password" required><br><br><br>
+          <div style="text-align: center">
+          <button class="button" type="submit" (click)="onSubmit(loginForm.value)">Login</button><br><br>
+          <a  routerLink="/date" >Register</a>
+          
+          </div>
+      </form>
+    </div>

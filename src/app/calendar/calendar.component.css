@@ -1,0 +1,31 @@
+/* @import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css'; */
+
+
+.app-top {
+    margin: 0 0 3em;
+  }
+  
+  .app-calendar {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  #external {
+    position: fixed;
+    z-index: 1;
+    top: 280px;
+    left: 20px;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+  }
+  
+  #external .fc-event {
+    margin: 1em 0;
+    cursor: move;
+  }
+  p {
+    font-family: Lato;
+  }
+  

@@ -1,0 +1,196 @@
+
+<app-home></app-home>
+<div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+    <div   class="outerborder">
+    <!-- <form [formGroup]=" registrationForm" novalidate> -->
+        <form name="form" [formGroup]=" angForm" autocomplete="on" (ngSubmit)="angForm.valid"  novalidate>
+          <table align=center>
+        <tr>
+          <td>Full Name :</td>
+          <td>Date of Birth</td>
+          
+        </tr>
+        <tr>
+          <td><input type="text" formControlName="name"></td>
+          <td><my-date-picker name="dob" [options]="dateOfBirth"
+            formControlName="dob"></my-date-picker></td>      
+            <!-- <td><input type="text" (click)="bOnClick()"  formControlName="dob"></td> -->
+         
+        </tr>
+        <tr>
+          <td class=a>
+              <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)">
+                  <div *ngIf="angForm.controls['name'].errors.required" class="error">
+                  Name is required.
+                </div>
+                <div *ngIf="angForm.controls['name'].errors.minlength" class="error">
+                  Name must be at least 4 characters long.
+                </div></div>
+  
+          </td>
+          <!-- <td class="a">
+              <div *ngIf="angForm.controls['dob'].invalid
+              && (angForm.controls['dob'].dirty || angForm.controls['dob'].touched)"
+               class="alert alert-danger">
+                 <div *ngIf="registrationForm.controls['dob'].errors.required" class="error">
+                 Date of Birth is required.
+               </div></div>
+              </td> -->
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>Contact :</td>
+        </tr>
+        <tr>
+          <td><input type="text"  formControlName="email"> </td>
+          <td> <input type="text" formControlName="num"></td>
+        </tr>
+        <tr>
+          <td class="a">
+              <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" >
+                  <div *ngIf="angForm.controls['email'].errors.required" class="error">
+                  Email is required.
+                </div>
+                <div *ngIf="angForm.controls['email'].errors.email" class="error">
+                  Invalid mail.
+                </div>
+              </div>
+  
+          </td>
+          <td class="a">
+              <div *ngIf="angForm.controls['num'].invalid && (angForm.controls['num'].dirty || angForm.controls['num'].touched)" >
+                  <div *ngIf="angForm.controls['num'].errors.required" class="error">
+                     Contact Number is required.
+                </div>
+                <div *ngIf="angForm.controls['num'].errors.pattern" class="error">
+                    Invalid Contact Number.
+                </div>
+              </div>
+  
+          </td>
+        </tr>
+        <tr>
+          <td>Password :</td>
+          <td>About Yourself :</td></tr><tr>
+          <td> <input type="password"  formControlName="password"><br>
+            <a routerLink="/setpassword">Password should contain...</a></td>
+            <td><textarea cols="20" rows="2" style="border-style:solid;
+            border-width: 3px;
+            border-color: grey"name="about" 
+             type="text" formControlName="abtu"></textarea></td>
+        </tr>
+  
+        <tr>
+            <td class="a">
+                <div *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)" >
+                    <div *ngIf="angForm.controls['password'].errors.required" class="error">
+                    Password is required.
+                  </div>
+                  <div *ngIf="angForm.controls['password'].errors.pattern" class="error">
+                    Invalid Password.
+                  </div>
+                </div> 
+    
+            </td>
+            <td class="a">
+                <div *ngIf="angForm.controls['abtu'].invalid && (angForm.controls['abtu'].dirty || angForm.controls['abtu'].touched)" >
+                    <div *ngIf="angForm.controls['abtu'].errors.required" class="error">
+                     Describe yourself.
+                  </div></div>
+    
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <ng-multiselect-dropdown name="states" formControlName="states" [placeholder]="'Select State'"
+              [data]="states" [disabled]="disabled" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)=" onSelectAll($event)">
+            </ng-multiselect-dropdown>
+            </td>
+
+              <td> <input type="radio" formControlName="gender" value="male" 
+                required > Male
+                <input type="radio" formControlName="gender" value="female" 
+                required > Female</td>
+          </tr>
+          <tr>
+              <td>Department:</td>
+              <td>Date of Joining :</td></tr>
+          <tr>
+            <td>
+              <select name="dpmid"  formControlName="dpmid">
+                <option value="1">Accounts and Finance.</option>
+                <option value="2">Human Resource Management</option>
+                <option value="3">Sales and marketing</option>
+                <option value="4">Infrastructures.</option>
+                <option value="5">Research and development</option>
+                <option value="6">Learning and development</option>
+                <option value="7">IT services.</option>
+                <option value="8">Product development.</option>
+              </select>
+            </td>
+            <!-- <td><my-date-picker name="doj" [options]="dateOfJoining"
+              formControlName="doj"></my-date-picker></td>      -->
+              <td><input type="text" formControlName="doj" ></td>
+          </tr>
+          <tr> <td class="a">
+              <div *ngIf="angForm.controls['dpmid'].invalid && (angForm.controls['dpmid'].dirty || angForm.controls['dpmid'].touched)" >
+                  <div *ngIf="angForm.controls['dpmid'].errors.required" class="error">
+                     Select your Department
+                </div>
+                <div *ngIf="angForm.controls['dpmid'].errors.pattern" class="error">
+                    Select your Department from the list.
+                </div>
+              </div>
+  
+          </td></tr>
+          <tr>
+              <td>
+                <ng-multiselect-dropdown name="shifts" formControlName="shifts" [placeholder]="'Select Shift'"
+                [data]="shifts" [disabled]="disabled" [settings]="dropdownSetting" (onSelect)="onShiftSelect($event)" (onSelectAll)=" onShiftSelectAll($event)">
+              </ng-multiselect-dropdown>
+              </td>
+              <td> <input type="text" formControlName="sduration"></td>
+            </tr>
+            <tr>
+              <td></td>
+            <td class="a">
+                <div *ngIf="angForm.controls['sduration'].invalid && (angForm.controls['sduration'].dirty || angForm.controls['sduration'].touched)" >
+                    <div *ngIf="angForm.controls['sduration'].errors.required" class="error">
+                       Enter Shift Duration.
+                  </div>
+                  <div *ngIf="angForm.controls['sduration'].errors.pattern" class="error">
+                      Invalid Shift Duration.
+                  </div>
+                </div>
+    
+            </td></tr>
+  </table>
+<br><br>
+  <input type="checkbox" >I want to receive email about updates to website.<br><br>
+  <input type="checkbox" value="agree"  formControlName="accept">I accept the <a routerLink="/termsandconditions">Terms and Conditions</a>.<br>
+              <div *ngIf="angForm.controls['accept'].invalid && (angForm.controls['accept'].dirty || angForm.controls['accept'].touched)" >
+                  <div *ngIf="angForm.controls['accept'].errors.required" class="error">
+                  Agree to continue....
+                </div></div><br><br>
+                Profile Photo : <input type="file" formControlName="file" ng2FileSelect [uploader]="uploader" accept="image/*" />
+                <!-- accept="application/msword,text/plain, application/pdf" /> -->
+                <button type="button" class="btn btn-success btn-s" 
+                (click)="uploader.uploadAll()" 
+                [disabled]="!uploader.getNotUploadedItems().length" >
+                    Upload File
+              </button>
+              <br><br><br>
+             
+  <div style="text-align: center"> <button  (click)="onSubmit(angForm.value)"[disabled]="angForm.pristine || angForm.invalid" class="button">Register</button>
+    <br>
+    <a  routerLink="/date" >Back</a>
+  </div>
+    </form>
+    </div>
+   
+    
+  </div>
+  
